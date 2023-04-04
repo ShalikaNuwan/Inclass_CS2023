@@ -1,0 +1,53 @@
+class Stack {
+    private:
+        Node* top;
+
+    public:
+        // Constructor
+        Stack() {
+            top = NULL;
+        }
+
+        // Push operation
+        void push(int value) {
+            Node* newNode = new Node(value);
+            if (top == NULL) {
+                top = newNode;
+            }
+            else {
+                newNode->next = top;
+                top = newNode;
+            }
+        }
+
+        // pop operation
+        int pop() {
+            if (top == NULL) {
+                cout << "Stack Underflow" << endl;
+                return -1;
+            }
+            else {
+                int value = top->data;
+                Node* temp = top;
+                top = top->next;
+                delete(temp);
+                return value;
+            }
+        }
+
+        // get the top item in the
+        int stackTop() {
+            if (top == NULL) {
+                cout << "Stack is empty" << endl;
+                return -1;
+            }
+            else {
+                return top->data;
+            }
+        }
+
+        // Check whether the stack is empty
+        bool isEmpty() {
+            return top == NULL;
+        }
+};
