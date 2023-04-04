@@ -35,7 +35,7 @@ class Stack {
             }
         }
 
-        // Peek operation
+        // get the item in top of the stack
         int statchTop() {
             if (isEmpty()) {
                 cout << "Stack is empty" << endl;
