@@ -1,0 +1,58 @@
+#define MAX_SIZE 10
+
+class Stack {
+    private:
+        int top;
+        int arr[MAX_SIZE];
+
+    public:
+        // Constructor
+        Stack() {
+            top = -1;
+        }
+
+        // Push operation
+        void push(int value) {
+            if (top == MAX_SIZE - 1) {
+                cout << "Stack Overflow" << endl;
+            }
+            else {
+                top = top + 1;
+                arr[top] = value;
+            }
+        }
+
+        // Pop operation
+        int pop() {
+            if (isEmpty()) {
+                cout << "Stack Underflow" << endl;
+                return -1;
+            }
+            else {
+                int value = arr[top];
+                top = top - 1;
+                return value;
+            }
+        }
+
+        // Peek operation
+        int statchTop() {
+            if (isEmpty()) {
+                cout << "Stack is empty" << endl;
+                return -1;
+            }
+            else {
+                return arr[top];
+            }
+        }
+
+        // Check if stack is empty
+        bool isEmpty() {
+            return top == -1;
+        }
+
+        // Check if stack is full
+        bool isFull() {
+            return top == MAX_SIZE - 1;
+        }
+};
